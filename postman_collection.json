@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "YOUR_POSTMAN_ID_HERE",
+		"name": "Topic & Skill Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_collection_link": "https://www.postman.com/collections/YOUR_COLLECTION_LINK"
+	},
+	"item": [
+		{
+			"name": "Topics",
+			"item": [
+				{
+					"name": "Get All Topics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/topics",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"topics"
+							]
+						},
+						"description": "Ruft alle verfügbaren Lern-Topics ab."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Topic by ID (t1)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/topics/t1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"topics",
+								"t1"
+							]
+						},
+						"description": "Ruft ein einzelnes Lern-Topic anhand seiner ID ab (Beispiel: t1 - Web Development Fundamentals)."
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Topic",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Grundlagen der Datenanalyse\",\n    \"description\": \"Einführung in statistische Methoden und Datenvisualisierung.\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/topics",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"topics"
+							]
+						},
+						"description": "Erstellt ein neues Lern-Topic. Erfordert 'name' und 'description' im JSON-Request-Body."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Topic (t1)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Web Development Fundamentals (Updated)\",\n    \"description\": \"Aktualisierte Kernkonzepte für moderne Webanwendungen.\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/topics/t1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"topics",
+								"t1"
+							]
+						},
+						"description": "Aktualisiert ein bestehendes Lern-Topic anhand seiner ID (Beispiel: t1). Erfordert 'name' und 'description' im JSON-Request-Body."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Topic (t1)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/topics/t1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"topics",
+								"t1"
+							]
+						},
+						"description": "Löscht ein Lern-Topic anhand seiner ID (Beispiel: t1). Beachten Sie den 204 No Content Statuscode bei Erfolg."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Skills",
+			"item": [
+				{
+					"name": "Get All Skills",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/skills",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"skills"
+							]
+						},
+						"description": "Ruft alle verfügbaren Lern-Skills ab."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Skill by ID (s1)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/skills/s1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"skills",
+								"s1"
+							]
+						},
+						"description": "Ruft einen einzelnen Lern-Skill anhand seiner ID ab (Beispiel: s1 - HTML Structure)."
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Skill",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"State Management with Redux\",\n    \"topicId\": \"t2\",\n    \"difficulty\": \"advanced\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/skills",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"skills"
+							]
+						},
+						"description": "Erstellt einen neuen Lern-Skill. Erfordert 'name' und 'topicId' im JSON-Request-Body."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Skill (s1)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"HTML Structure (Updated)\",\n    \"topicId\": \"t1\",\n    \"difficulty\": \"intermediate\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/skills/s1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"skills",
+								"s1"
+							]
+						},
+						"description": "Aktualisiert einen bestehenden Lern-Skill anhand seiner ID (Beispiel: s1). Erfordert 'name' und 'topicId' im JSON-Request-Body."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Skill (s1)",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/skills/s1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"skills",
+								"s1"
+							]
+						},
+						"description": "Löscht einen Lern-Skill anhand seiner ID (Beispiel: s1). Beachten Sie den 204 No Content Statuscode bei Erfolg."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

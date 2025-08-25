@@ -1,0 +1,366 @@
+[
+  {
+    "id": "t1",
+    "name": "Web Development Fundamentals",
+    "description": "Core concepts for building web applications, including HTML, CSS, and JavaScript.",
+    "prerequisites": [],
+    "parentTopicId": null
+  },
+  {
+    "id": "t2",
+    "name": "Frontend Development",
+    "description": "Building the user interface and interaction, covering frameworks like React, Vue, or Angular.",
+    "prerequisites": ["t1"],
+    "parentTopicId": "t1"
+  },
+  {
+    "id": "t3",
+    "name": "Backend Development",
+    "description": "Server-side logic, databases, and APIs, for instance, with Python Flask, Node.js Express, or Java Spring.",
+    "prerequisites": ["t1"],
+    "parentTopicId": "t1"
+  },
+  {
+    "id": "t4",
+    "name": "Fullstack Development",
+    "description": "Combining both frontend and backend development skills to build complete web applications.",
+    "prerequisites": ["t2", "t3"],
+    "parentTopicId": null
+  },
+  {
+    "id": "t5",
+    "name": "Data Science Basics",
+    "description": "Introduction to data analysis, statistics, and programming for data.",
+    "prerequisites": [],
+    "parentTopicId": null
+  },
+  {
+    "id": "t6",
+    "name": "Machine Learning",
+    "description": "Algorithms and models for building intelligent systems that learn from data.",
+    "prerequisites": ["t5"],
+    "parentTopicId": "t5"
+  },
+  {
+    "id": "t7",
+    "name": "Deep Learning",
+    "description": "Advanced machine learning techniques using neural networks.",
+    "prerequisites": ["t6"],
+    "parentTopicId": "t6"
+  },
+  {
+    "id": "t8",
+    "name": "Cloud Computing",
+    "description": "Fundamentals of cloud platforms, services, and deployment.",
+    "prerequisites": ["t3"],
+    "parentTopicId": null
+  },
+  {
+    "id": "t9",
+    "name": "DevOps Practices",
+    "description": "Integrating development and operations for faster and more reliable software delivery.",
+    "prerequisites": ["t3", "t8"],
+    "parentTopicId": "t8"
+  },
+  {
+    "id": "t10",
+    "name": "Cybersecurity Fundamentals",
+    "description": "Basic concepts of protecting systems and data from digital threats.",
+    "prerequisites": [],
+    "parentTopicId": null
+  },
+  {
+    "id": "t11",
+    "name": "Mobile Development (Android)",
+    "description": "Building applications for the Android platform using Kotlin/Java.",
+    "prerequisites": ["t3"],
+    "parentTopicId": null
+  },
+  {
+    "id": "t12",
+    "name": "Mobile Development (iOS)",
+    "description": "Building applications for the iOS platform using Swift/Objective-C.",
+    "prerequisites": ["t3"],
+    "parentTopicId": null
+  },
+  {
+    "id": "t13",
+    "name": "Game Development (Unity)",
+    "description": "Creating 2D/3D games using the Unity engine and C#.",
+    "prerequisites": [],
+    "parentTopicId": null
+  },
+  {
+    "id": "t14",
+    "name": "Software Engineering Principles",
+    "description": "Best practices, methodologies, and patterns for building robust software.",
+    "prerequisites": [],
+    "parentTopicId": null
+  },
+  {
+    "id": "t15",
+    "name": "Database Management",
+    "description": "Design, implementation, and management of relational and NoSQL databases.",
+    "prerequisites": ["t3"],
+    "parentTopicId": null
+  },
+  {
+    "id": "t16",
+    "name": "Project Management (Agile)",
+    "description": "Applying Agile methodologies like Scrum and Kanban to software projects.",
+    "prerequisites": [],
+    "parentTopicId": null
+  },
+  {
+    "id": "t17",
+    "name": "UI/UX Design",
+    "description": "Principles and tools for creating user-friendly and aesthetically pleasing interfaces.",
+    "prerequisites": [],
+    "parentTopicId": null
+  },
+  {
+    "id": "t18",
+    "name": "Testing and Quality Assurance",
+    "description": "Strategies and tools for ensuring software quality.",
+    "prerequisites": ["t14"],
+    "parentTopicId": null
+  },
+  {
+    "id": "t19",
+    "name": "Data Visualization",
+    "description": "Techniques and tools for representing data graphically.",
+    "prerequisites": ["t5"],
+    "parentTopicId": "t5"
+  },
+  {
+    "id": "t20",
+    "name": "Big Data Technologies",
+    "description": "Working with large datasets and distributed computing frameworks.",
+    "prerequisites": ["t5"],
+    "parentTopicId": "t5"
+  },
+  {
+    "id": "t21",
+    "name": "Web Security",
+    "description": "Protecting web applications from common vulnerabilities.",
+    "prerequisites": ["t1", "t3", "t10"],
+    "parentTopicId": "t10"
+  },
+  {
+    "id": "t22",
+    "name": "Network Security",
+    "description": "Securing computer networks from unauthorized access and attacks.",
+    "prerequisites": ["t10"],
+    "parentTopicId": "t10"
+  },
+  {
+    "id": "t23",
+    "name": "Ethical Hacking",
+    "description": "Learning hacking techniques to identify and fix vulnerabilities.",
+    "prerequisites": ["t21", "t22"],
+    "parentTopicId": "t10"
+  },
+  {
+    "id": "t24",
+    "name": "Containerization (Docker)",
+    "description": "Packaging applications and their dependencies into portable containers.",
+    "prerequisites": ["t8", "t9"],
+    "parentTopicId": "t9"
+  },
+  {
+    "id": "t25",
+    "name": "Orchestration (Kubernetes)",
+    "description": "Automating deployment, scaling, and management of containerized applications.",
+    "prerequisites": ["t24"],
+    "parentTopicId": "t9"
+  },
+  {
+    "id": "t26",
+    "name": "Microservices Architecture",
+    "description": "Designing applications as collections of loosely coupled, independently deployable services.",
+    "prerequisites": ["t3", "t14"],
+    "parentTopicId": "t14"
+  },
+  {
+    "id": "t27",
+    "name": "Serverless Computing",
+    "description": "Building and running applications without managing servers.",
+    "prerequisites": ["t8"],
+    "parentTopicId": "t8"
+  },
+  {
+    "id": "t28",
+    "name": "API Design and Development",
+    "description": "Principles and practices for creating robust and user-friendly APIs.",
+    "prerequisites": ["t3"],
+    "parentTopicId": "t3"
+  },
+  {
+    "id": "t29",
+    "name": "Data Structures and Algorithms",
+    "description": "Fundamental concepts for efficient problem-solving and programming.",
+    "prerequisites": [],
+    "parentTopicId": null
+  },
+  {
+    "id": "t30",
+    "name": "Object-Oriented Programming (OOP)",
+    "description": "Designing software using objects and classes.",
+    "prerequisites": [],
+    "parentTopicId": null
+  },
+  {
+    "id": "t31",
+    "name": "Functional Programming",
+    "description": "Programming with pure functions and immutable data.",
+    "prerequisites": [],
+    "parentTopicId": null
+  },
+  {
+    "id": "t32",
+    "name": "Version Control (Git)",
+    "description": "Managing code changes and collaboration with Git and GitHub.",
+    "prerequisites": [],
+    "parentTopicId": null
+  },
+  {
+    "id": "t33",
+    "name": "Agile Software Development",
+    "description": "Iterative and collaborative approaches to software development.",
+    "prerequisites": [],
+    "parentTopicId": "t16"
+  },
+  {
+    "id": "t34",
+    "name": "Cloud Security",
+    "description": "Securing applications and data in cloud environments.",
+    "prerequisites": ["t8", "t10"],
+    "parentTopicId": "t10"
+  },
+  {
+    "id": "t35",
+    "name": "Advanced JavaScript",
+    "description": "Deep dive into JavaScript concepts like closures, prototypes, and asynchronous programming.",
+    "prerequisites": ["t1"],
+    "parentTopicId": "t1"
+  },
+  {
+    "id": "t36",
+    "name": "React Ecosystem",
+    "description": "Exploring advanced React topics, state management, and related libraries.",
+    "prerequisites": ["t2"],
+    "parentTopicId": "t2"
+  },
+  {
+    "id": "t37",
+    "name": "SQL Databases",
+    "description": "Working with relational databases like PostgreSQL, MySQL, and SQL querying.",
+    "prerequisites": ["t15"],
+    "parentTopicId": "t15"
+  },
+  {
+    "id": "t38",
+    "name": "NoSQL Databases",
+    "description": "Exploring non-relational databases like MongoDB, Cassandra, and Redis.",
+    "prerequisites": ["t15"],
+    "parentTopicId": "t15"
+  },
+  {
+    "id": "t39",
+    "name": "Message Queues",
+    "description": "Implementing asynchronous communication between microservices.",
+    "prerequisites": ["t26"],
+    "parentTopicId": "t26"
+  },
+  {
+    "id": "t40",
+    "name": "Real-time Applications",
+    "description": "Building web applications with instant updates using WebSockets.",
+    "prerequisites": ["t2", "t3"],
+    "parentTopicId": null
+  },
+  {
+    "id": "t41",
+    "name": "Computer Vision",
+    "description": "Enabling computers to 'see' and interpret images and videos.",
+    "prerequisites": ["t6"],
+    "parentTopicId": "t6"
+  },
+  {
+    "id": "t42",
+    "name": "Natural Language Processing (NLP)",
+    "description": "Teaching computers to understand, interpret, and generate human language.",
+    "prerequisites": ["t6"],
+    "parentTopicId": "t6"
+  },
+  {
+    "id": "t43",
+    "name": "Data Engineering",
+    "description": "Building and maintaining systems for collecting, storing, and processing data.",
+    "prerequisites": ["t5", "t20"],
+    "parentTopicId": "t5"
+  },
+  {
+    "id": "t44",
+    "name": "Geospatial Data Analysis",
+    "description": "Working with location-based data and mapping technologies.",
+    "prerequisites": ["t5"],
+    "parentTopicId": "t5"
+  },
+  {
+    "id": "t45",
+    "name": "Web Scraping",
+    "description": "Techniques for extracting data from websites.",
+    "prerequisites": ["t1", "t35"],
+    "parentTopicId": "t5"
+  },
+  {
+    "id": "t46",
+    "name": "Performance Optimization",
+    "description": "Improving the speed and efficiency of web applications and algorithms.",
+    "prerequisites": ["t4"],
+    "parentTopicId": "t4"
+  },
+  {
+    "id": "t47",
+    "name": "Cloud Native Development",
+    "description": "Building and deploying applications specifically for cloud environments, leveraging cloud services.",
+    "prerequisites": ["t8", "t24", "t25"],
+    "parentTopicId": "t8"
+  },
+  {
+    "id": "t48",
+    "name": "Frontend Testing",
+    "description": "Testing strategies for user interfaces, including unit, integration, and end-to-end testing.",
+    "prerequisites": ["t2", "t18"],
+    "parentTopicId": "t2"
+  },
+  {
+    "id": "t49",
+    "name": "Backend Testing",
+    "description": "Testing strategies for server-side logic, including unit, integration, and API testing.",
+    "prerequisites": ["t3", "t18"],
+    "parentTopicId": "t3"
+  },
+  {
+    "id": "t50",
+    "name": "Continuous Integration/Continuous Deployment (CI/CD)",
+    "description": "Automating the software delivery pipeline from code changes to deployment.",
+    "prerequisites": ["t9", "t32"],
+    "parentTopicId": "t9"
+  },
+  {
+    "id": "t51",
+    "name": "IoT Development",
+    "description": "Building applications for the Internet of Things, connecting devices and data.",
+    "prerequisites": ["t3", "t8"],
+    "parentTopicId": null
+  },
+  {
+    "id": "t52",
+    "name": "Blockchain Fundamentals",
+    "description": "Introduction to distributed ledger technologies and cryptocurrencies.",
+    "prerequisites": ["t29"],
+    "parentTopicId": null
+  }
+]
