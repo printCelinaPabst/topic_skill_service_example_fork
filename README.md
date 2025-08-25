@@ -6,16 +6,25 @@ Wie startest du die App.
 
 Linux/macOS: 
 ```bash
+python -m venv venv #Wenn noch nicht erstellt
 source venv/bin/activate
+```
+
+Windows mit Git Bash: 
+```bash
+python -m venv venv #Wenn noch nicht erstellt
+source venv/Scripts/activate
 ```
 
 Windows (PowerShell): 
 ```bash
+python -m venv venv #Wenn noch nicht erstellt
 .\venv\Scripts\Activate.ps1
 ```
 
 Windows (Cmd): 
 ```bash
+python -m venv venv #Wenn noch nicht erstellt
 venv\Scripts\activate.bat
 ```
 
