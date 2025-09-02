@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 5000
 
 #damit die Anwendung läuft und Anfragen akzeptiert und bearbeitet werden können
-CMD [ "flask", "run", "--host", "0.0.0.0"]
+CMD [ "gunicorn", "--bind", "0.0.0.0:5000", "app:app" ]
