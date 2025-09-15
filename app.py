@@ -179,16 +179,13 @@ def list_skills():
 
 
 @app.route('/skills/<id>', methods=['GET'])
-def get_skill_by_id(id):
-    """
-    Ruft einen einzelnen Lern-Skill anhand seiner ID ab.
-    Gibt 404 Not Found zurück, wenn der Skill nicht gefunden wird.
-    """
-    skills = data_manager.read_data(SKILLS_FILE)
-    skill = next((s for s in skills if s['id'] == id), None)
-    if skill:
-        return jsonify(skill)
-    return jsonify({"error": "Skill not found"}), 404
+def get_skill(id):
+    s = Skill.query.get(id)
+    if not s:
+        return jsonify({"error": "Skill not found"}), 404
+    return s.to_dict()
+
+    
 
 @app.route('/skills', methods=['POST'])
 def create_skill():
