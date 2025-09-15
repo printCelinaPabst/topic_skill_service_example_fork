@@ -44,19 +44,18 @@ def get_topics():
     data = [topic.to_dict() for topic in rows]
     return jsonify(data)
 
+
 @app.route('/topics/<id>', methods=['GET'])
 def get_topic_by_id(id):
     """
     Ruft ein einzelnes Lern-Topic anhand seiner ID ab.
     Gibt 404 Not Found zurück, wenn das Topic nicht gefunden wird.
     """
-    topics = data_manager.read_data(TOPICS_FILE)
-    # Verwende 'next()' mit einem Generator-Ausdruck, um das erste passende Topic zu finden.
-    # Wenn kein Topic gefunden wird, ist der Standardwert 'None'.
-    topic = next((t for t in topics if t['id'] == id), None)
-    if topic:
-        return jsonify(topic)
-    return jsonify({"error": "Topic not found"}), 404
+    topic = Topic.query.get(id)
+    if not topic:
+        return jsonify({"error": "Topic not found"}), 404
+    return topic.to_dict()
+
 
 @app.route('/topics', methods=['POST'])
 def create_topic():
