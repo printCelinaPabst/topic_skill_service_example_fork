@@ -155,12 +155,28 @@ def delete_topic(id):
 # --- SKILL ENDPUNKTE ---
 
 @app.route('/skills', methods=['GET'])
-def get_skills():
-    """
-    Ruft alle verfügbaren Lern-Skills ab.
-    """
-    skills = data_manager.read_data(SKILLS_FILE)
-    return jsonify(skills)
+def list_skills():
+    q = request.args.get("q")
+    topic_id = request.args.get("topicId")
+    try:
+        limit = min(int(request.args.get("limit", 50)), 200)
+        offset = max(int(request.args.get("offset", 0)), 0)
+    except:
+        return jsonify({"error": "limit/offset must be numbers"}), 422
+
+    query = Skill.query
+    if q:
+        query = query.filter(Skill.name.ilike(f"%{q}%"))
+    if topic_id:
+        query = query.filter(Skill.topic_id == topic_id)
+
+    total = query.count()
+    items = query.order_by(Skill.name.asc()).limit(limit).offset(offset).all()
+    return {
+        "data": [s.to_dict() for s in items],
+        "meta": {"total": total, "limit": limit, "offset": offset}
+    }
+
 
 @app.route('/skills/<id>', methods=['GET'])
 def get_skill_by_id(id):
