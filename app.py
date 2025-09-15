@@ -209,34 +209,23 @@ def create_skill():
 
 @app.route('/skills/<id>', methods=['PUT'])
 def update_skill(id):
-    """
-    Aktualisiert einen bestehenden Lern-Skill anhand seiner ID.
-    Erfordert 'name' und 'topicId' im JSON-Request-Body für die vollständige Aktualisierung.
-    """
-    updated_data = request.json
-    if not updated_data or 'name' not in updated_data or 'topicId' not in updated_data:
-        return jsonify({"error": "Name und Topic ID für den Skill sind erforderlich"}), 400
-
-    skills = data_manager.read_data(SKILLS_FILE)
-
-    found_index = -1
-    for i, s in enumerate(skills):
-        if s['id'] == id:
-            found_index = i
-            break
-
-    if found_index == -1:
+    s = Skill.query.get(id)
+    if not s:
         return jsonify({"error": "Skill not found"}), 404
 
-    # Aktualisiere die Felder des gefundenen Skills
-    skills[found_index]['name'] = updated_data['name']
-    skills[found_index]['topicId'] = updated_data['topicId']
-    # 'difficulty' wird aktualisiert, wenn im Request vorhanden, sonst bleibt der alte Wert
-    skills[found_index]['difficulty'] = updated_data.get('difficulty', skills[found_index].get('difficulty', 'unknown'))
+    payload = request.get_json(silent=True) or {}
+    name = (payload.get("name") or s.name).strip()
+    topic_id = payload.get("topicID", payload.get("topicId", s.topic_id))
+    difficulty = (payload.get("difficulty") or s.difficulty).strip()
 
-    data_manager.write_data(SKILLS_FILE, skills)
+    if not Topic.query.get(topic_id):
+        return jsonify({"error": "topicID not found"}), 422
 
-    return jsonify(skills[found_index]), 200
+    s.name = name
+    s.topic_id = topic_id
+    s.difficulty = difficulty
+    db.session.commit()
+    return s.to_dict()
 
 @app.route('/skills/<id>', methods=['DELETE'])
 def delete_skill(id):
