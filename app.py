@@ -72,7 +72,6 @@ def get_topic_by_id(id):
     return topic.to_dict()
 
 
-
 @app.route('/topics', methods=['POST'])
 def create_topic():
     """
@@ -97,7 +96,6 @@ def create_topic():
     db.session.add(topic)
     db.session.commit()
     return topic.to_dict(), 201
-
 
 
 @app.route('/topics/<id>', methods=['PUT'])
@@ -186,7 +184,6 @@ def get_skill(id):
     return s.to_dict()
 
     
-
 @app.route('/skills', methods=['POST'])
 def create_skill():
     payload = request.get_json(silent=True) or {}
@@ -206,6 +203,7 @@ def create_skill():
     db.session.add(s)
     db.session.commit()
     return s.to_dict(), 201
+
 
 @app.route('/skills/<id>', methods=['PUT'])
 def update_skill(id):
@@ -227,27 +225,15 @@ def update_skill(id):
     db.session.commit()
     return s.to_dict()
 
+
 @app.route('/skills/<id>', methods=['DELETE'])
 def delete_skill(id):
-    """
-    Löscht einen Lern-Skill anhand seiner ID.
-    Gibt 204 No Content zurück, wenn erfolgreich gelöscht.
-    """
-    skills = data_manager.read_data(SKILLS_FILE)
-
-    found_index = -1
-    for i, s in enumerate(skills):
-        if s['id'] == id:
-            found_index = i
-            break
-
-    if found_index == -1:
+    s = Skill.query.get(id)
+    if not s:
         return jsonify({"error": "Skill not found"}), 404
-
-    skills.pop(found_index)
-    data_manager.write_data(SKILLS_FILE, skills)
-
-    return '', 204
+    db.session.delete(s)
+    db.session.commit()
+    return "", 204
 
 if __name__ == '__main__':
     # Startet den Flask-Entwicklungsserver.
