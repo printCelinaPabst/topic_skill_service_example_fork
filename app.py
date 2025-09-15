@@ -189,28 +189,23 @@ def get_skill(id):
 
 @app.route('/skills', methods=['POST'])
 def create_skill():
-    """
-    Erstellt einen neuen Lern-Skill.
-    Erfordert 'name' und 'topicId' im JSON-Request-Body.
-    Generiert eine eindeutige ID und speichert den Skill.
-    """
-    new_skill_data = request.json
-    if not new_skill_data or 'name' not in new_skill_data or 'topicId' not in new_skill_data:
-        return jsonify({"error": "Name und Topic ID für den Skill sind erforderlich"}), 400
+    payload = request.get_json(silent=True) or {}
+    name = (payload.get("name") or "").strip()
+    topic_id = payload.get("topicID") or payload.get("topicId")
+    difficulty = (payload.get("difficulty") or "beginner").strip()
 
-    new_skill_id = str(uuid.uuid4())
-    skill = {
-        "id": new_skill_id,
-        "name": new_skill_data['name'],
-        "topicId": new_skill_data['topicId'],
-        "difficulty": new_skill_data.get('difficulty', 'unknown') # 'difficulty' ist optional
-    }
+    if not name:
+        return jsonify({"error": "Field 'name' is required"}), 422
+    if not topic_id:
+        return jsonify({"error": "Field 'topicID' is required"}), 422
 
-    skills = data_manager.read_data(SKILLS_FILE)
-    skills.append(skill)
-    data_manager.write_data(SKILLS_FILE, skills)
+    if not Topic.query.get(topic_id):
+        return jsonify({"error": "topicID not found"}), 422
 
-    return jsonify(skill), 201
+    s = Skill(name=name, topic_id=topic_id, difficulty=difficulty)
+    db.session.add(s)
+    db.session.commit()
+    return s.to_dict(), 201
 
 @app.route('/skills/<id>', methods=['PUT'])
 def update_skill(id):
