@@ -1,5 +1,6 @@
-FROM python:3.14-rc-slim
+FROM python:3.12-slim
 
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1 PORT=5000
 # Container mit eigener Verzeichnisstruktur
 WORKDIR /app
 
@@ -7,7 +8,7 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 
 #Befehl um die requiremnets ause requirements.txt zu installieren
-RUN pip install -r requirements.txt
+RUN python -m pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
