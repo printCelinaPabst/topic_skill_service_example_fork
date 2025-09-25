@@ -4,6 +4,7 @@ from flask_migrate import Migrate
 from dotenv import load_dotenv
 from models import db, Topic, Skill
 from sqlalchemy import exists
+from flask_cors import CORS
 
 load_dotenv()
 
@@ -19,6 +20,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
 Migrate(app, db)
 
+CORS(app)
 
 @app.route('/')
 def hello_world():
